@@ -28,6 +28,7 @@ CLASS y_rest_api {
 	
 	add_action('init',array( __CLASS__, 'add_rule' ));
 	add_filter('query_vars',array(__CLASS__,'add_query'));
+	add_action('parse_request',array( __CLASS__, 'set_api_page' ));
 
 	}
 	
@@ -47,7 +48,14 @@ CLASS y_rest_api {
 	
 	}
 	
+	public static function set_api_page( $query){
 	
+		
+		if( $query->query_vars['api'] ) {
+			echo "hello word";
+		}
+	
+	}	
 	
 	
 	
