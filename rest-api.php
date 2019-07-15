@@ -34,8 +34,7 @@ CLASS y_rest_api {
 	
 		add_rewrite_rule('index.php','api');
 		
-		    global $wp_rewrite;
-
+		    global $wp_rewrite; // this 2line is optional => read wp doc!
 			$wp_rewrite->flush_rules();
 		
 	}
