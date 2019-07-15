@@ -27,6 +27,7 @@ CLASS y_rest_api {
 	public static function init() {
 	
 	add_action('init',array( __CLASS__, 'add_rule' ));
+	add_filter('query_vars',array(__CLASS__,'add_query'));
 
 	}
 	
@@ -36,8 +37,17 @@ CLASS y_rest_api {
 		
 		    global $wp_rewrite; // this 2line is optional => read wp doc!
 			$wp_rewrite->flush_rules();
-		
+				
 	}
+	
+	public static function add_query($vars){
+	
+	    $vars[] = "api";
+		return $vars;
+	
+	}
+	
+	
 	
 	
 	
