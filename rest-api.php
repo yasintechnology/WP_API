@@ -20,3 +20,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'dont access!' );
 }
 
+y_rest_api::init();
+
+CLASS y_rest_api {
+
+	public static function init() {
+	
+	add_action('init',array( __CLASS__, 'add_rule' ));
+
+	}
+	
+	public static function add_rule(){
+	
+		add_rewrite_rule('index.php','api');
+		
+		    global $wp_rewrite;
+
+			$wp_rewrite->flush_rules();
+		
+	}
+	
+	
+	
+
+}
